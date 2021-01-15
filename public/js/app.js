@@ -1991,6 +1991,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
@@ -3220,12 +3222,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var formData = new FormData();
       formData.append('api_token', this.user.api_token);
+      formData.append('_method', 'delete');
       console.log(formData);
-      axios({
-        method: 'post',
-        url: '/api/posts/delete/' + this.$route.params.id,
-        data: formData
-      }).then(function (response) {
+      axios.post('/api/posts/delete/' + this.$route.params.id, formData).then(function (response) {
         console.log(response.data);
 
         _this3.$router.push('/myPosts');
@@ -3263,7 +3262,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.flex[data-v-332fccf4], .flex-justify[data-v-332fccf4], .flex-align[data-v-332fccf4], .flex-justify-align[data-v-332fccf4]  {\n    display: flex;\n}\n.flex-justify[data-v-332fccf4], .flex-justify-align[data-v-332fccf4] {\n    justify-content: center;\n}\n.flex-align[data-v-332fccf4], .flex-justify-align[data-v-332fccf4] {\n    align-items: center;\n}\na[data-v-332fccf4] {\n    text-decoration: none;\n}\n.blue-color[data-v-332fccf4] {\n    color: #00CEFF;\n}\n.blue-color-bg[data-v-332fccf4] {\n    background: #00CEFF;\n}\n.white[data-v-332fccf4] {\n    color: white;\n}\n.toggle-menu[data-v-332fccf4] {\n    position: fixed;\n    top: 20px;\n    left: 5px;\n    cursor: pointer;\n    z-index: 20;\n    transition: transform .3s;\n    display: none;\n}\n.toggle-menu svg[data-v-332fccf4] {\n    width: 20px;\n    height: auto;\n}\n#arrow.open[data-v-332fccf4] {\n    transform: rotate(180deg);\n}\n.top[data-v-332fccf4] {\n    border-bottom: 1px solid #D8D8D8;\n    padding: 10px 0;\n    position: relative;\n}\n.logo[data-v-332fccf4], .top-navigation[data-v-332fccf4] {\n    width: 45%;\n}\n.logo[data-v-332fccf4] {\n    position: relative;\n    z-index: 1;\n}\n.logo svg[data-v-332fccf4] {\n    width: 70px;\n    height: auto;\n}\n.logo h1[data-v-332fccf4] {\n    font-size: 2em;\n    padding: 0 10px;\n}\n.top-navigation[data-v-332fccf4] {\n    text-align: right;\n}\n.top-navigation a[data-v-332fccf4] {\n    font-size: 1.3em;\n    padding-left: 15px;\n    font-weight: bold;\n    transition: color .3s;\n}\n.top-navigation a[data-v-332fccf4]:hover {\n    color: #0081ff;\n}\n.user-info[data-v-332fccf4] {\n    position: absolute;\n    width: 90%;\n    top: 0;\n    left: 50%;\n    transform: translateX(-50%);\n    text-align: right;\n    color: #009eff;\n    font-size: .9em;\n    margin-top: 5px;\n}\n.user-info p[data-v-332fccf4] {\n    padding: 0;\n    margin: 0;\n}\n.main-content[data-v-332fccf4] {\n    width: 90%;\n    margin: 30px auto;\n}\n.left-side[data-v-332fccf4] {\n    width: 25%;\n    padding-right: 30px;\n}\n.right-side[data-v-332fccf4] {\n    width: 75%;\n}\n.filters[data-v-332fccf4] {\n    margin-top: 50px;\n}\n.categories h2[data-v-332fccf4] {\n    margin-top: 0;\n}\n.filters[data-v-332fccf4] {\n    color: #717171;\n}\n.filters p[data-v-332fccf4] {\n    border-top: 1px solid rgba(112, 112, 112, 0.51);\n    padding: 15px 0;\n    margin: 0;\n}\n.filters p[data-v-332fccf4]:first-of-type {\n    border-top: none;\n}\n@media only screen and (max-width: 900px) {\n.toggle-menu[data-v-332fccf4] {\n        display: block;\n}\n.left-side[data-v-332fccf4] {\n        position: fixed;\n        background: white;\n        left: -280px;\n        top: 0;\n        padding-left: 20px;\n        height: 100vh;\n        overflow-y: scroll;\n        z-index: 5;\n        width: 230px;\n        transition: left .3s;\n        padding-top: 50px;\n}\n.left-side.open[data-v-332fccf4] {\n        left: 0;\n}\n.right-side[data-v-332fccf4] {\n        width: 100%;\n}\n.logo svg[data-v-332fccf4] {\n        width: 60px;\n        height: auto;\n}\n.logo h1[data-v-332fccf4] {\n        font-size: 1.4em;\n        padding: 0 10px;\n}\n.top-navigation a[data-v-332fccf4] {\n        font-size: 1em;\n}\n.user-info[data-v-332fccf4] {\n        font-size: .8em;\n}\n}\n.footer[data-v-332fccf4] {\n    padding: 30px 0;\n}\n.logo-white[data-v-332fccf4] {\n    margin: auto;\n}\n.logo-white svg[data-v-332fccf4] {\n    width: 50px;\n    height: auto;\n}\n.logo-white h1[data-v-332fccf4] {\n    font-size: 2em;\n    padding: 0 10px;\n}\n.border-white[data-v-332fccf4] {\n    width: 40%;\n    height: 2px;\n    background: white;\n    margin: 20px auto;\n}\n.footer h3[data-v-332fccf4] {\n    font-weight: normal;\n    font-size: 1em;\n    text-align: center;\n}\n\n\n\n", ""]);
+exports.push([module.i, "\n.flex[data-v-332fccf4], .flex-justify[data-v-332fccf4], .flex-align[data-v-332fccf4], .flex-justify-align[data-v-332fccf4]  {\n    display: flex;\n}\n.flex-justify[data-v-332fccf4], .flex-justify-align[data-v-332fccf4] {\n    justify-content: center;\n}\n.flex-align[data-v-332fccf4], .flex-justify-align[data-v-332fccf4] {\n    align-items: center;\n}\na[data-v-332fccf4] {\n    text-decoration: none;\n}\n.blue-color[data-v-332fccf4] {\n    color: #00CEFF;\n}\n.blue-color-bg[data-v-332fccf4] {\n    background: #00CEFF;\n}\n.white[data-v-332fccf4] {\n    color: white;\n}\n.toggle-menu[data-v-332fccf4] {\n    position: fixed;\n    top: 20px;\n    left: 5px;\n    cursor: pointer;\n    z-index: 20;\n    transition: transform .3s;\n    display: none;\n}\n.toggle-menu svg[data-v-332fccf4] {\n    width: 20px;\n    height: auto;\n}\n#arrow.open[data-v-332fccf4] {\n    transform: rotate(180deg);\n}\n.top[data-v-332fccf4] {\n    border-bottom: 1px solid #D8D8D8;\n    padding: 10px 0;\n    position: relative;\n}\n.logo[data-v-332fccf4], .top-navigation[data-v-332fccf4] {\n    width: 45%;\n}\n.logo[data-v-332fccf4] {\n    position: relative;\n    z-index: 1;\n}\n.logo svg[data-v-332fccf4] {\n    width: 70px;\n    height: auto;\n}\n.logo h1[data-v-332fccf4] {\n    font-size: 2em;\n    padding: 0 10px;\n}\n.top-navigation[data-v-332fccf4] {\n    text-align: right;\n}\n.top-navigation a[data-v-332fccf4] {\n    font-size: 1.3em;\n    padding-left: 15px;\n    font-weight: bold;\n    transition: color .3s;\n}\n.top-navigation a[data-v-332fccf4]:hover {\n    color: #0081ff;\n}\n.user-info[data-v-332fccf4] {\n    position: absolute;\n    width: 90%;\n    top: 0;\n    left: 50%;\n    transform: translateX(-50%);\n    text-align: right;\n    color: #009eff;\n    font-size: .9em;\n    margin-top: 5px;\n}\n.user-info p[data-v-332fccf4] {\n    padding: 0;\n    margin: 0;\n}\n.main-content[data-v-332fccf4] {\n    width: 90%;\n    margin: 30px auto;\n}\n.left-side[data-v-332fccf4] {\n    width: 25%;\n    padding-right: 30px;\n}\n.right-side[data-v-332fccf4] {\n    width: 75%;\n}\n.filters[data-v-332fccf4] {\n    margin-top: 50px;\n}\n.categories h2[data-v-332fccf4] {\n    margin-top: 0;\n}\n.filters[data-v-332fccf4] {\n    color: #717171;\n}\n.filters p[data-v-332fccf4] {\n    border-top: 1px solid rgba(112, 112, 112, 0.51);\n    padding: 15px 0;\n    margin: 0;\n}\n.filters p[data-v-332fccf4]:first-of-type {\n    border-top: none;\n}\n@media only screen and (max-width: 900px) {\n.toggle-menu[data-v-332fccf4] {\n        display: block;\n}\n.left-side[data-v-332fccf4] {\n        position: fixed;\n        background: white;\n        left: -280px;\n        top: 0;\n        padding-left: 20px;\n        height: 100vh;\n        overflow-y: scroll;\n        z-index: 5;\n        width: 230px;\n        transition: left .3s;\n        padding-top: 50px;\n}\n.left-side.open[data-v-332fccf4] {\n        left: 0;\n}\n.right-side[data-v-332fccf4] {\n        width: 100%;\n}\n.logo svg[data-v-332fccf4] {\n        width: 60px;\n        height: auto;\n}\n.logo h1[data-v-332fccf4] {\n        font-size: 1.4em;\n        padding: 0 10px;\n}\n.top-navigation a[data-v-332fccf4] {\n        font-size: 1em;\n}\n.user-info[data-v-332fccf4] {\n        font-size: .8em;\n}\n}\n.footer[data-v-332fccf4] {\n    padding: 30px 0;\n}\n.logo-white[data-v-332fccf4] {\n    margin: auto;\n}\n.logo-white svg[data-v-332fccf4] {\n    width: 50px;\n    height: auto;\n}\n.logo-white h1[data-v-332fccf4] {\n    font-size: 2em;\n    padding: 0 10px;\n}\n.border-white[data-v-332fccf4] {\n    width: 40%;\n    height: 2px;\n    background: white;\n    margin: 20px auto;\n}\n.footer h3[data-v-332fccf4] {\n    font-weight: normal;\n    font-size: 1em;\n    text-align: center;\n}\n\n\n\n/*\n    Router view transition styles\n*/\n.fade-enter-active[data-v-332fccf4],\n.fade-leave-active[data-v-332fccf4] {\ntransition-duration: 0.3s;\ntransition-property: opacity;\ntransition-timing-function: ease;\n}\n.fade-enter[data-v-332fccf4],\n.fade-leave-active[data-v-332fccf4] {\nopacity: 0\n}\n", ""]);
 
 // exports
 
@@ -22273,9 +22272,16 @@ var render = function() {
         "div",
         { staticClass: "right-side" },
         [
-          _c("router-view", {
-            attrs: { user: this.user, postsUpdate: this.posts }
-          })
+          _c(
+            "transition",
+            { attrs: { name: "fade", mode: "out-in" } },
+            [
+              _c("router-view", {
+                attrs: { user: this.user, postsUpdate: this.posts }
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -23585,7 +23591,9 @@ var render = function() {
                           "div",
                           { staticClass: "info-2 flex text-color-light-gray" },
                           _vm._l(_vm.post.categories, function(category) {
-                            return _c("p", [_vm._v(_vm._s(category.name))])
+                            return _c("p", { key: category }, [
+                              _vm._v(_vm._s(category.name))
+                            ])
                           }),
                           0
                         )
@@ -23654,47 +23662,55 @@ var render = function() {
                         : _c(
                             "div",
                             _vm._l(_vm.comments, function(comment) {
-                              return _c("div", { staticClass: "comment" }, [
-                                _c(
-                                  "div",
-                                  { staticClass: "comment-info flex" },
-                                  [
-                                    _c(
-                                      "p",
-                                      {
-                                        staticClass: "text-color-light-gray",
-                                        class: _vm.myComment(comment.user.name)
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.showUsersName(comment.user.name)
+                              return _c(
+                                "div",
+                                { key: comment, staticClass: "comment" },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "comment-info flex" },
+                                    [
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass: "text-color-light-gray",
+                                          class: _vm.myComment(
+                                            comment.user.name
                                           )
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "blue-color" }, [
-                                      _vm._v(_vm._s(comment.created_at))
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "comment-text text-color-light-gray"
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                            " +
-                                        _vm._s(comment.text) +
-                                        "\n                        "
-                                    )
-                                  ]
-                                )
-                              ])
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.showUsersName(
+                                                comment.user.name
+                                              )
+                                            )
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("p", { staticClass: "blue-color" }, [
+                                        _vm._v(_vm._s(comment.created_at))
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "comment-text text-color-light-gray"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                            " +
+                                          _vm._s(comment.text) +
+                                          "\n                        "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
                             }),
                             0
                           )

@@ -44,7 +44,7 @@
                             <p>{{ post.created_at }}</p>
                         </div>
                         <div class="info-2 flex text-color-light-gray">
-                            <p v-for="category in post.categories">{{ category.name }}</p>
+                            <p v-for="category in post.categories" :key="category">{{ category.name }}</p>
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
                     </div>
 
                     <div v-else>
-                        <div class="comment" v-for="comment in comments">
+                        <div class="comment" v-for="comment in comments" :key="comment">
 
                             <div class="comment-info flex">
                                 <p class="text-color-light-gray" :class="myComment(comment.user.name)">{{ showUsersName(comment.user.name) }}</p>
@@ -160,12 +160,9 @@
             deletePost: function() {
                 let formData = new FormData();
                 formData.append('api_token', this.user.api_token);
+                formData.append('_method', 'delete');
                 console.log(formData);
-                axios({
-                    method: 'post', 
-                    url: '/api/posts/delete/' + this.$route.params.id, 
-                    data: formData
-                })
+                axios.post('/api/posts/delete/' + this.$route.params.id, formData)
                     .then(response => {
                         console.log(response.data);
                         this.$router.push('/myPosts');

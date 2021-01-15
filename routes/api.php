@@ -25,7 +25,7 @@ Route::middleware('auth:api')->group(function() {
 
     Route::get('/posts/{post}', 'PostsController@show');
     Route::get('/posts/comments/{post}', 'PostsController@postComments');
-    Route::post('/posts/delete/{post}', 'PostsController@delete');
+    Route::delete('/posts/delete/{post}', 'PostsController@delete');          // ------
 
     // Comments
     Route::post('/comments', 'CommentsController@store');
