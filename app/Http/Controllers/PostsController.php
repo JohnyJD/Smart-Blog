@@ -77,7 +77,7 @@ class PostsController extends Controller
 
     public function delete(Post $post)
     {
-        $this->authorize('delete', $post);
+        //$this->authorize('delete', $post);
 
         $post->delete();
         $this->deleteSlugImage($post);

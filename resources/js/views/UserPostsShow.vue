@@ -158,14 +158,21 @@
                     });
             },
             deletePost: function() {
-                axios.delete('/api/posts/' + this.$route.params.id)
+                let formData = new FormData();
+                formData.append('api_token', this.user.api_token);
+                console.log(formData);
+                axios({
+                    method: 'post', 
+                    url: '/api/posts/delete/' + this.$route.params.id, 
+                    data: formData
+                })
                     .then(response => {
                         console.log(response.data);
                         this.$router.push('/myPosts');
                     })
                     .catch(errors => {
                         console.log(errors);
-                        alert('Internal error. Unable to delete post.')
+                        alert('Internal error. Unable to delete post.');
                     });
             },
             showUsersName(name) {

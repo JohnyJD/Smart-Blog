@@ -60,7 +60,7 @@
 
             </div>
 
-
+            <!-- Router view container -->
             <div class="right-side">
                 <router-view :user="this.user" :postsUpdate="this.posts"></router-view>
             </div>
