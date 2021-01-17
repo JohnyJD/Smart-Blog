@@ -2291,6 +2291,12 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return '';
+    },
+    getAllRatings: function getAllRatings() {
+      var postRatings = this.post.data.ratings.filter(function (rating) {
+        return rating.pivot.rating != 0;
+      });
+      return postRatings.length;
     }
   }
 });
@@ -22831,7 +22837,11 @@ var render = function() {
             staticClass: "post-rating-p",
             class: { "bad-rating": _vm.post.data.rating < 0 }
           },
-          [_vm._v(_vm._s(_vm.post.data.rating))]
+          [
+            _vm._v(
+              _vm._s(_vm.post.data.rating) + "/" + _vm._s(this.getAllRatings())
+            )
+          ]
         ),
         _vm._v(" "),
         _vm.user
