@@ -7,7 +7,7 @@
                 <p>No posts avalaible right now</p>
             </div>
             <div class="post" v-for="post in this.posts" :key="post.id">
-                <PostComponent :post="post" :postPath="'/posts/'"></PostComponent>
+                <PostComponent :post="post" :postPath="'/posts/'" :user="user"></PostComponent>
             </div>
         </div>
     </div>
@@ -20,10 +20,13 @@
         components: {
             PostComponent
         },
+        props: [
+            'user'
+        ],
         mounted() {
             axios.get('/api/allPosts')
                 .then(response => {
-                    console.log(response.data.data);
+                    //console.log(response.data.data);
                     this.posts = response.data.data;
                     this.loading = false;
                 })

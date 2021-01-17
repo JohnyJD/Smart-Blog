@@ -7,16 +7,15 @@
             <p>Post not found</p>
         </div>
         <div v-else>
-
             <div class="post-wrapper">
                 <div class="main-image">
                     <img :src="'/storage/' + post.slug_image" alt="Post image">
                 </div>
-
+                <RatingComponent :user="this.user" :post="this.post" />
                 <div class="post-title">
                     <h2>{{ post.title }}</h2>
                 </div>
-
+                
                 <div class="post-info flex">
                     <div class="info-1 flex blue-color">
                         <p>by {{ post.user.name }}</p>
@@ -26,12 +25,14 @@
                         <p v-for="category in post.categories">{{ category.name }}</p>
                     </div>
                 </div>
-
+                
 
                 <div class="main-text text-color-light-gray">
                     <p v-html="post.text"></p>
                 </div>
             </div>
+
+            
 
             <div class="comments-wrapper">
 
@@ -78,11 +79,12 @@
 
 <script>
     import TextareaComponent from "../components/TextareaComponent";
+    import RatingComponent from "../components/RatingComponent";
 
     export default {
         name: "AllPostsShow",
         components: {
-            TextareaComponent
+            TextareaComponent, RatingComponent
         },
         props: [
             'user'
@@ -142,6 +144,19 @@
                 return {
                     'my_comment' : this.user != null && this.user.name === name
                 }
+            },
+            addRating(rating) {
+                //console.log(this.user);
+                let formData = new FormData();
+                formData.append('rating', rating);
+                formData.append('api_token', this.user.api_token);
+                axios.get('/api/user/' + this.user.id + '/post/'+ this.post.post_id +'/rating' , formData)
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(errors => {
+                         this.errors = errors.response.data.errors;
+                    });
             }
 
         }

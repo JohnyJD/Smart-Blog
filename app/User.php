@@ -45,4 +45,8 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function ratings() {
+        return $this->belongsToMany(Post::class)->withPivot('rating')->withTimestamps();
+    }
+
 }

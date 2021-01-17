@@ -26,6 +26,8 @@ class Post extends JsonResource
               'user' => $this->user,
               'categories' => $this->categories,
               'comments' => $this->comments,
+              'rating' => $this->rating,
+              'ratings' => $this->userRatings
           ],
           'links' => [
               'self' => $this->path(),

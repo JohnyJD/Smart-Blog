@@ -38,6 +38,9 @@ Route::middleware('auth:api')->group(function() {
     Route::delete('/categories/{category}', 'CategoriesController@delete');
 
 
+
+    Route::post('/user/post/rating', 'UserController@updateRating');
+    Route::get('/user/{user}/post/{post}/rating', 'UserController@getRating');
 });
 
 //All posts

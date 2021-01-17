@@ -8,7 +8,7 @@
                 <p>No posts avalaible right now</p>
             </div>
             <div class="post" v-for="post in this.posts" :key="post.id">
-                <PostComponent :post="post" :postPath="'/posts/'"></PostComponent>
+                <PostComponent :post="post" :postPath="'/posts/'" :user="user"></PostComponent>
             </div>
         </div>
     </div>
@@ -17,12 +17,12 @@
 <script>
     import PostComponent from '../components/PostComponent';
     export default {
-        name: "AllPostsIndex",
+        name: "AllPostsFilterIndex",
         components: {
             PostComponent
         },
         props: [
-            'postsUpdate'
+            'postsUpdate', 'user'
         ],
         mounted() {
             axios.get('/api/allPosts/category/' + this.$route.params.name)

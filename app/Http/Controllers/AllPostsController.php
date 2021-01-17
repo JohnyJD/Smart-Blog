@@ -10,7 +10,7 @@ use App\Http\Resources\Post as PostResource;
 class AllPostsController extends Controller
 {
     public function index() {
-        return PostResource::collection(Post::with('categories', 'user', 'comments')->get());
+        return PostResource::collection(Post::with('categories', 'user', 'comments', 'userRatings')->get());
     }
 
     public function show(Post $post) {
@@ -23,7 +23,7 @@ class AllPostsController extends Controller
     public function postsByCategory($categoryName) {
         if($categoryName) {
             if(Category::where("name", "=", $categoryName)) {
-                return PostResource::collection(Category::where("name", "=", $categoryName)->first()->posts()->with('categories', 'user', 'comments')->get());
+                return PostResource::collection(Category::where("name", "=", $categoryName)->first()->posts()->with('categories', 'user', 'comments','userRatings')->get());
             }
         }
         return "Nothing found";

@@ -14,6 +14,8 @@ use Intervention\Image\Facades\Image;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
+//use Illuminate\Http\Request;
+
 class PostsController extends Controller
 {
     public function __construct()
@@ -136,5 +138,11 @@ class PostsController extends Controller
     {
         Storage::disk('public')->delete('slug_images', $post->slug_image);
         //Storage::disk('images')->delete('slug_images', $post->slug_image);
+    }
+
+    public function updateRating(Post $post) {
+        $post->rating = $post->rating + request()->input('rating');
+        $post->save();
+        return response([], Response::HTTP_OK);
     }
 }
